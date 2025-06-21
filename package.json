@@ -24,7 +24,7 @@
     "lint-staged": {
         "*.php": [
             "vendor/bin/pint --dirty",
-            "vendor/bin/phpstan analyse"
+            "vendor/bin/phpstan analyse --memory-limit=2G"
         ],
         "*.blade.php": [
             "pnpm prettier --write"
