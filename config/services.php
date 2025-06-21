@@ -35,4 +35,8 @@ return [
         ],
     ],
 
+    'tmdb' => [
+        'api_key' => env('TMDB_API_KEY'),
+        'api_language' => env('TMDB_API_LANGUAGE', 'en-US'),
+    ],
 ];
