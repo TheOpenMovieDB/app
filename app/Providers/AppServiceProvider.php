@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
+use URL;
 
 final class AppServiceProvider extends ServiceProvider
 {
@@ -28,6 +29,7 @@ final class AppServiceProvider extends ServiceProvider
         $this->configureModels();
         $this->configureDates();
         $this->configureCli();
+        $this->configureHttps();
 
 
     }
@@ -56,5 +58,12 @@ final class AppServiceProvider extends ServiceProvider
         DB::prohibitDestructiveCommands($this->app->isProduction());
     }
 
+
+    private function configureHttps(): void
+    {
+        if ($this->app->isProduction()) {
+            URL::forceScheme('https');
+        }
+    }
 
 }
