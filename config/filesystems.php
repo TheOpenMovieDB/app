@@ -59,8 +59,15 @@ return [
             'throw' => false,
             'report' => false,
         ],
+        'tmdb_files' => [
+            'driver' => 'local',
+            'root' => storage_path('app/tmdb'),
+            'url' => env('APP_URL').'/storage/tmdb',
+            'visibility' => 'private',
+            'throw' => false,
+        ],
 
-    ],
+],
 
     /*
     |--------------------------------------------------------------------------
